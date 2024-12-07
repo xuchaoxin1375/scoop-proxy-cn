@@ -15,7 +15,11 @@ jobs:
       - name: Checkout fork
         uses: actions/checkout@v3
 
-
+      # Set Git user config
+      - name: Set up Git user
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
       # Add the source repository as a remote
       - name: Add upstream remote
