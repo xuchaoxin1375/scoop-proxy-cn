@@ -1,0 +1,40 @@
+name: Sync Fork with Upstream
+
+on:
+  # 定时任务，比如每小时或每天检查源仓库更新
+  schedule:
+    - cron: '0 * * * *'  # 每小时触发一次同步任务
+  workflow_dispatch:  # 支持手动触发工作流
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout your fork repository
+      - name: Checkout fork
+        uses: actions/checkout@v3
+
+      # Set up Git
+      - name: Set up Git
+        uses: actions/setup-git@v2
+
+      # Add the source repository as a remote
+      - name: Add upstream remote
+        run: git remote add upstream https://github.com/lzwme/scoop-proxy-cn.git
+
+      # Fetch the updates from the source repository
+      - name: Fetch upstream
+        run: git fetch upstream
+
+      # Merge the changes from upstream/main into your fork's main branch
+      - name: Merge upstream/main into fork/main
+        run: |
+          git checkout main
+          git merge upstream/main --allow-unrelated-histories -m "Sync with upstream"
+
+      # Push the changes to your fork on GitHub
+      - name: Push changes
+        run: git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
