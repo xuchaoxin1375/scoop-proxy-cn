@@ -1,12 +1,12 @@
 {
   "version": "b8377",
-  "description": "Inference of LLaMA model in pure C/C++ (Vulkan version)",
+  "description": "Inference of LLaMA model in pure C/C++ (CUDA 13.1 version)",
   "homepage": "https://github.com/ggml-org/llama.cpp",
   "license": "MIT",
   "architecture": {
     "64bit": {
-      "url": "https://github.moeyy.xyz/https://github.com/ggml-org/llama.cpp/releases/download/b8377/llama-b8377-bin-win-vulkan-x64.zip",
-      "hash": "4546351ca51adad6ba54d934c9d598f848a873138baf57f1bb6c6529a74c9438"
+      "url": "https://github.moeyy.xyz/https://github.com/ggml-org/llama.cpp/releases/download/b8377/llama-b8377-bin-win-cuda-13.1-x64.zip",
+      "hash": "a6595c39015864649a11e394a75c1f883836ec9bb0579833cfda24209dc449ec"
     }
   },
   "bin": [
@@ -36,7 +36,7 @@
   "autoupdate": {
     "architecture": {
       "64bit": {
-        "url": "https://github.moeyy.xyz/https://github.com/ggml-org/llama.cpp/releases/download/$version/llama-$version-bin-win-vulkan-x64.zip"
+        "url": "https://github.moeyy.xyz/https://github.com/ggml-org/llama.cpp/releases/download/$version/llama-$version-bin-win-cuda-13.1-x64.zip"
       }
     }
   }
